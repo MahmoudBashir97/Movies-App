@@ -17,6 +17,7 @@ import com.mahmoud.bashir.movies_app.listeners.TVShowsListener;
 import com.mahmoud.bashir.movies_app.models.TVShow;
 import com.mahmoud.bashir.movies_app.viewmodels.MostPopularTvShowsViewModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,6 +56,10 @@ public class MainActivity extends AppCompatActivity implements TVShowsListener {
                     }
                 }
             }
+        });
+
+        activityMainBinding.imgWatchlist.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext(),WatchListActivity.class));
         });
         getMostPopularTvShows();
 
@@ -97,12 +102,7 @@ public class MainActivity extends AppCompatActivity implements TVShowsListener {
     @Override
     public void onTVShowClicked(TVShow tvShow) {
         Intent i = new Intent(getApplicationContext(),TVShowDetails_Activity.class);
-        i.putExtra("id",tvShow.getId());
-        i.putExtra("name",tvShow.getName());
-        i.putExtra("startDate",tvShow.getStart_date());
-        i.putExtra("country",tvShow.getCountry());
-        i.putExtra("network",tvShow.getNetwork());
-        i.putExtra("status",tvShow.getStatus());
+        i.putExtra("tvShow", tvShow);
         startActivity(i);
 
     }

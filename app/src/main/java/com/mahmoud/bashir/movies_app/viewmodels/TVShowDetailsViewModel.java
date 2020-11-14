@@ -1,20 +1,34 @@
 package com.mahmoud.bashir.movies_app.viewmodels;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
+import android.app.Application;
 
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+
+import com.mahmoud.bashir.movies_app.models.TVShow;
 import com.mahmoud.bashir.movies_app.repositories.TVShowDetailsRepository;
 import com.mahmoud.bashir.movies_app.responses.TVShowDetailsResponse;
+import com.mahmoud.bashir.movies_app.room.TVShowDatabase;
 
-public class TVShowDetailsViewModel extends ViewModel {
+import io.reactivex.Completable;
+
+public class TVShowDetailsViewModel extends AndroidViewModel {
 
     private TVShowDetailsRepository repository;
+    private TVShowDatabase tvShowDatabase;
 
-    public TVShowDetailsViewModel(){
+    public TVShowDetailsViewModel(Application application){
+        super(application);
+
         repository = new TVShowDetailsRepository();
+        tvShowDatabase = TVShowDatabase.getTVShowDatabase(application);
     }
 
     public LiveData<TVShowDetailsResponse> getTVShowDetails(String tvShowId){
         return repository.getTVShowDetails(tvShowId);
+    }
+
+    public Completable addToWatchList(TVShow tvShow){
+        return tvShowDatabase.tvShowDao().addToWatchList(tvShow);
     }
 }

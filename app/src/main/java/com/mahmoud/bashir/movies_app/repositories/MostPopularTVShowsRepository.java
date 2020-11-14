@@ -1,5 +1,7 @@
 package com.mahmoud.bashir.movies_app.repositories;
 
+import android.widget.Toast;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -31,7 +33,7 @@ public class MostPopularTVShowsRepository {
 
             @Override
             public void onFailure(@NonNull Call<TVShowResponse> call,@NonNull Throwable t) {
-                data.setValue(null);
+                t.getMessage();
             }
         });
 

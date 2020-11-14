@@ -31,7 +31,7 @@ public class TVShowDetailsRepository {
 
             @Override
             public void onFailure(@NonNull Call<TVShowDetailsResponse> call,@NonNull Throwable t) {
-                data.setValue(null);
+                t.getMessage();
             }
         });
 
