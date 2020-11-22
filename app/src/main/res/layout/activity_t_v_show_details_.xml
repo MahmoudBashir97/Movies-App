@@ -65,9 +65,6 @@
                 android:layout_height="wrap_content">
 
 
-
-
-
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/sliderViewPager2"
             android:layout_width="match_parent"
@@ -318,11 +315,6 @@
                         android:textColor="@color/colorTextIcon"
                         android:textSize="@dimen/_12ssp"
                         />
-
-
-
-
-
 
                 </LinearLayout>
 
