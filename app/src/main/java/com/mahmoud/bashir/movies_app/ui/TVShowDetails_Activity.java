@@ -67,7 +67,7 @@ public class TVShowDetails_Activity extends AppCompatActivity {
 
             Toast.makeText(this, "id >>>> "+i, Toast.LENGTH_LONG).show();
 
-        //checkTVShowAvailableInWatchlist();
+        checkTVShowAvailableInWatchlist();
         doInitialization();
 
     }
@@ -79,7 +79,7 @@ public class TVShowDetails_Activity extends AppCompatActivity {
 
     private void checkTVShowAvailableInWatchlist(){
         CompositeDisposable compositeDisposable = new CompositeDisposable();
-        compositeDisposable.add(tvShowDetailsViewModel.getTvShowFromWatchlist(""+tvShow.getId())
+        compositeDisposable.add(tvShowDetailsViewModel.getTvShowFromWatchlist(29560)
         .subscribeOn(Schedulers.computation()).observeOn(AndroidSchedulers.mainThread())
         .subscribe( tvShow ->{
             isTVShowAvailableInWatchlist = true;

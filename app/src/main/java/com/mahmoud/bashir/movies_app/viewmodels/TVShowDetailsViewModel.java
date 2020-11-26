@@ -33,7 +33,7 @@ public class TVShowDetailsViewModel extends AndroidViewModel {
         return tvShowDatabase.tvShowDao().addToWatchList(tvShow);
     }
 
-    public Flowable<TVShow> getTvShowFromWatchlist(String id){
+    public Flowable<TVShow> getTvShowFromWatchlist(int id){
         return tvShowDatabase.tvShowDao().getTvShowFromWatchlist(id);
     }
 
